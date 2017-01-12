@@ -32,9 +32,6 @@ public class RestUtil {
 
 
     public Response requestApi(String loan_ym, String cb_grd, String job_cd, String house_tycd, String age, String income, String debt){
-
-
-
         UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder
                 .fromHttpUrl(baseUrl)
                 .path(path)

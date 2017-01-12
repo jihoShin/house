@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 public class Application {
 
+
     public void main(String[] args){
 
         SpringApplication springApplication = new SpringApplication(Application.class);
