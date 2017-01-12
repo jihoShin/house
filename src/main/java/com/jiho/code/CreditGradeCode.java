@@ -14,7 +14,9 @@ public enum CreditGradeCode {
     GRADE_7 ("7", "7등급"),
     GRADE_8 ("8", "8등급"),
     GRADE_9 ("9", "9등급"),
-    GRADE_10 ("10", "10등급");
+    GRADE_10 ("10", "10등급"),
+    ALL ("", "ALL")
+    ;
 
     public String code;
     public String desc;

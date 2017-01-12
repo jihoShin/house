@@ -16,7 +16,8 @@ public enum HouseTypeCode {
     COMPLEX_BUILDING ("09", "주상복합"),
     EFFICENCY_APARTMENT ("10", "오피스텔"),
     ELDERLY_WELFARE_HOUSE ("11", "노인복지주택"),
-    ETC	("99", "기타");
+    ETC	("99", "기타"),
+    ALL ("", "ALL");
 
     public String code;
     public String desc;

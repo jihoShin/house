@@ -21,11 +21,18 @@ import java.net.URI;
 @Service
 public class RestUtil {
 
-
     private String serviceKey="yS1djcMZ9BW0TowDL1iBgdKEWNP%2FfNItjmvxiHD5qy7HdJPvNlc8Kkbchj6DJ7wrxbNenLdmJdto7g8cWaFbfw%3D%3D";
     private String baseUrl="http://apidev.hf.go.kr:8090";
     private String path = "/service/rest/rentloanratmultidim/getRentLoanRatMultiDim";
 
+    public static String SERVICE_KEY="serviceKey";
+    public static String LOAN_YM="loan_ym";
+    public static String CB_GRD="cb_grd";
+    public static String JOB_CD="job_cd";
+    public static String HOUSE_TYCD="house_tycd";
+    public static String AGE="age";
+    public static String INCOME="income";
+    public static String DEBT="debt";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -35,20 +42,23 @@ public class RestUtil {
         UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder
                 .fromHttpUrl(baseUrl)
                 .path(path)
-                .queryParam("serviceKey", serviceKey)
-                .queryParam("loan_ym",loan_ym);
-        addParam(uriComponentsBuilder, "cb_grd", cb_grd);
-        addParam(uriComponentsBuilder, "job_cd", job_cd);
-        addParam(uriComponentsBuilder, "house_tycd", house_tycd);
-        addParam(uriComponentsBuilder, "age", age);
-        addParam(uriComponentsBuilder, "income", income);
-        addParam(uriComponentsBuilder, "debt", debt);
+                .queryParam(SERVICE_KEY, serviceKey)
+                .queryParam(LOAN_YM,loan_ym);
+        addParam(uriComponentsBuilder, CB_GRD, cb_grd);
+        addParam(uriComponentsBuilder, JOB_CD, job_cd);
+        addParam(uriComponentsBuilder, HOUSE_TYCD, house_tycd);
+        addParam(uriComponentsBuilder, AGE, age);
+        addParam(uriComponentsBuilder, INCOME, income);
+        addParam(uriComponentsBuilder, DEBT, debt);
 
         URI uri = uriComponentsBuilder.build(true).toUri();
         MultiValueMap<String, String> headers = new HttpHeaders();
         HttpEntity requestEntity = new HttpEntity(headers);
 
         ResponseEntity<Response> result = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, Response.class);
+        if(result == null){
+            return null;
+        }
         return result.getBody();
     }
 

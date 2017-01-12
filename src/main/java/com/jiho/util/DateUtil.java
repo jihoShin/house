@@ -9,7 +9,6 @@ import java.util.Date;
 public class DateUtil {
 
 
-
     public static Date getDate(int year, int month){
         Calendar cal = Calendar.getInstance();
         cal.set(year, month, 15);

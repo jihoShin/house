@@ -16,7 +16,8 @@ public enum IncomeCode {
     ANNUAL_INCOME_8 ("8", "연소득 7000~8000"),
     ANNUAL_INCOME_9 ("9", "연소득 8000~9000"),
     ANNUAL_INCOME_10 ("10", "연소득 9000~10,000"),
-    ANNUAL_INCOME_11 ("11", "연소득 10,000~");
+    ANNUAL_INCOME_11 ("11", "연소득 10,000~"),
+    ALL ("", "ALL");
 
     public String code;
     public String desc;

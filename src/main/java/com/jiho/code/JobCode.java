@@ -7,7 +7,8 @@ public enum JobCode {
 
     OFFICE_WORKER ("01", "직장인"),
     PRIVATE_BUSINESS ("02", "자영업자"),
-    ETC	("03", "기타");
+    ETC	("03", "기타"),
+    ALL ("", "ALL");
 
     public String code;
     public String desc;

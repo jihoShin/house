@@ -13,7 +13,9 @@ public enum AgeCode {
     SIXTY ("6", "60대"),
     SEVENTY ("7", "70대"),
     EIGHTY ("8", "80대"),
-    NINETY ("9", "90대");
+    NINETY ("9", "90대"),
+    ALL ("", "ALL")
+    ;
 
     public String code;
     public String desc;

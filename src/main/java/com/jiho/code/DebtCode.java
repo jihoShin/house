@@ -16,7 +16,9 @@ public enum DebtCode {
     DEBT_8 ("8", "부채 7000~8000"),
     DEBT_9 ("9", "부채 8000~9000"),
     DEBT_10 ("10", "부채 9000~10,000"),
-    DEBT_11 ("11", "부채 10,000~");
+    DEBT_11 ("11", "부채 10,000~"),
+    ALL ("", "ALL")
+    ;
 
     public String code;
     public String desc;
