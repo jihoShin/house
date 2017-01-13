@@ -1,4 +1,4 @@
-package com.jiho.code;
+package com.jiho.house.code;
 
 /**
  * Created by jiho87.shin on 2017-01-11.
