@@ -1,7 +1,4 @@
-package com.jiho.model;
-
-import javax.xml.bind.annotation.XmlElement;
-import java.util.List;
+package com.jiho.house.model;
 
 /**
  * Created by jiho87.shin on 2017-01-11.
@@ -17,11 +14,11 @@ public class Body {
     private int totalCount;
 
 
-    public com.jiho.model.Items getItems() {
+    public com.jiho.house.model.Items getItems() {
         return Items;
     }
 
-    public void setItems(com.jiho.model.Items items) {
+    public void setItems(com.jiho.house.model.Items items) {
         Items = items;
     }
 

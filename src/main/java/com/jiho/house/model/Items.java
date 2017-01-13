@@ -1,6 +1,5 @@
-package com.jiho.model;
+package com.jiho.house.model;
 
-import javax.xml.bind.annotation.XmlElement;
 import java.util.List;
 
 /**

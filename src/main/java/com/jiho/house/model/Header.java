@@ -1,6 +1,4 @@
-package com.jiho.model;
-
-import javax.xml.bind.annotation.XmlElement;
+package com.jiho.house.model;
 
 /**
  * Created by jiho87.shin on 2017-01-11.

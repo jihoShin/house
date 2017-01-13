@@ -1,6 +1,6 @@
-package com.jiho.util;
+package com.jiho.house.service;
 
-import com.jiho.model.Item;
+import com.jiho.house.model.Item;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
  * Created by jiho87.shin on 2017-01-11.
  */
 @Component
-public class EsUtil {
+public class HouseEsService {
 
     @Autowired
     private TransportClient client;
@@ -26,8 +26,6 @@ public class EsUtil {
         if(list == null || list.size() == 0){
             return;
         }
-
-
 
         for(Item item : list){
             try {

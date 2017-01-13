@@ -1,13 +1,13 @@
 package com.jiho;
 
+import com.jiho.config.ApplicationConfig;
 import com.jiho.house.code.*;
-import com.jiho.config.ApplicationLocalConfig;
 import com.jiho.house.model.Item;
 import com.jiho.house.model.Response;
-import com.jiho.common.util.DateUtil;
-import com.jiho.house.service.EsService;
-import com.jiho.common.util.JsonUtil;
-import com.jiho.house.service.RestService;
+import com.jiho.house.service.HouseApiService;
+import com.jiho.house.service.HouseEsService;
+import com.jiho.util.DateUtil;
+import com.jiho.util.JsonUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ import java.util.List;
  * Created by jiho87.shin on 2017-01-09.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = {ApplicationLocalConfig.class})
+@SpringBootTest(classes = {ApplicationConfig.class})
 @ActiveProfiles("local")
 public class RestTest {
 
@@ -33,13 +33,13 @@ public class RestTest {
     private RestTemplate restTemplate;
 
     @Autowired
-    private EsService esUtil;
+    private HouseEsService esUtil;
 
     @Autowired
-    private RestService restUtil;
+    private HouseApiService houseApiService;
 
     public void testApi(){
-        Response response = restUtil.requestApi("201601", CreditGradeCode.GRADE_1.code, JobCode.ETC.code, null, null, null, null);
+        Response response = houseApiService.request("201601", CreditGradeCode.GRADE_1.code, JobCode.ETC.code, null, null, null, null);
         System.out.println(JsonUtil.getJsonString(response));
     }
 
@@ -58,7 +58,7 @@ public class RestTest {
                             for(AgeCode ageCode :  AgeCode.class.getEnumConstants()) {
                                 for(DebtCode debtCode :  DebtCode.class.getEnumConstants()) {
 
-                                    Response response = restUtil.requestApi(loan_ym, creditGrade.code, jobCode.code, houseTypeCode.code, ageCode.code, incomeCode.code, debtCode.code);
+                                    Response response = houseApiService.request(loan_ym, creditGrade.code, jobCode.code, houseTypeCode.code, ageCode.code, incomeCode.code, debtCode.code);
                                     System.out.println(loan_ym+", "+creditGrade.desc+", "+ jobCode.desc+ ", " + houseTypeCode.desc +","+ageCode.desc+", "+incomeCode.desc+", "+debtCode.desc);
 
                                     try {
@@ -95,7 +95,7 @@ public class RestTest {
             for(CreditGradeCode creditGrade :  CreditGradeCode.class.getEnumConstants()){
                 for(JobCode jobCode :  JobCode.class.getEnumConstants()) {
                     System.out.println(loan_ym+", "+creditGrade.desc+", "+ jobCode.desc+ ", " + null);
-                    Response response = restUtil.requestApi(loan_ym, creditGrade.code, jobCode.code, null, null, null, null);
+                    Response response = houseApiService.request(loan_ym, creditGrade.code, jobCode.code, null, null, null, null);
                     try {
                         if(response.getBody() == null || response.getBody().getItems() == null || response.getBody().getItems().getItem() == null
                                 || ! response.getHeaeder().getResultCode().equals("00")

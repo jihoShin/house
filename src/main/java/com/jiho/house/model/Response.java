@@ -1,10 +1,7 @@
-package com.jiho.model;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
+package com.jiho.house.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**

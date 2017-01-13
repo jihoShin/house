@@ -16,9 +16,5 @@ public class Application {
         SpringApplication springApplication = new SpringApplication(Application.class);
         springApplication.run(args);
 
-
-
-
-
     }
 }

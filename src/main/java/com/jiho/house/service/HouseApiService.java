@@ -1,6 +1,6 @@
-package com.jiho.util;
+package com.jiho.house.service;
 
-import com.jiho.model.Response;
+import com.jiho.house.model.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -12,14 +12,13 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.xml.ws.ServiceMode;
 import java.net.URI;
 
 /**
  * Created by jiho87.shin on 2017-01-09.
  */
 @Service
-public class RestUtil {
+public class HouseApiService {
 
     private String serviceKey="yS1djcMZ9BW0TowDL1iBgdKEWNP%2FfNItjmvxiHD5qy7HdJPvNlc8Kkbchj6DJ7wrxbNenLdmJdto7g8cWaFbfw%3D%3D";
     private String baseUrl="http://apidev.hf.go.kr:8090";
@@ -38,7 +37,7 @@ public class RestUtil {
     private RestTemplate restTemplate;
 
 
-    public Response requestApi(String loan_ym, String cb_grd, String job_cd, String house_tycd, String age, String income, String debt){
+    public Response request(String loan_ym, String cb_grd, String job_cd, String house_tycd, String age, String income, String debt){
         UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder
                 .fromHttpUrl(baseUrl)
                 .path(path)
