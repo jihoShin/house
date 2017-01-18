@@ -27,7 +27,7 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = {ApplicationConfig.class})
 @ActiveProfiles("local")
-public class RestTest {
+public class HouseRestTest {
 
     @Autowired
     private RestTemplate restTemplate;
@@ -63,7 +63,7 @@ public class RestTest {
 
                                     try {
                                         if(response.getBody() == null || response.getBody().getItems() == null || response.getBody().getItems().getItem() == null
-                                                || ! response.getHeaeder().getResultCode().equals("00")
+                                                || ! response.getHeader().getResultCode().equals("00")
                                                 ){
                                             continue;
                                         }
@@ -98,7 +98,7 @@ public class RestTest {
                     Response response = houseApiService.request(loan_ym, creditGrade.code, jobCode.code, null, null, null, null);
                     try {
                         if(response.getBody() == null || response.getBody().getItems() == null || response.getBody().getItems().getItem() == null
-                                || ! response.getHeaeder().getResultCode().equals("00")
+                                || ! response.getHeader().getResultCode().equals("00")
                                 ){
                             continue;
                         }

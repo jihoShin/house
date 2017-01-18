@@ -22,11 +22,20 @@ import java.net.UnknownHostException;
  */
 @Configuration
 @ComponentScan("com.jiho")
-@Profile("local")
 public class ApplicationConfig {
 
+    @Profile("default")
+    @Bean
+    public RestTemplate getRestTemplate(){
+        SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
+        return new RestTemplate(requestFactory);
+    }
+
+
+    @Profile("local")
     @Bean
     public RestTemplate getRestTemplateLocal(){
+
 
         SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
         Proxy proxy= new Proxy(Proxy.Type.HTTP, new InetSocketAddress("168.219.61.252", 8080));

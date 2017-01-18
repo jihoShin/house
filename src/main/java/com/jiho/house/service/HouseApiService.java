@@ -1,6 +1,7 @@
 package com.jiho.house.service;
 
 import com.jiho.house.model.Response;
+import com.jiho.util.RestUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -36,19 +37,19 @@ public class HouseApiService {
     @Autowired
     private RestTemplate restTemplate;
 
-
     public Response request(String loan_ym, String cb_grd, String job_cd, String house_tycd, String age, String income, String debt){
         UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder
                 .fromHttpUrl(baseUrl)
                 .path(path)
                 .queryParam(SERVICE_KEY, serviceKey)
                 .queryParam(LOAN_YM,loan_ym);
-        addParam(uriComponentsBuilder, CB_GRD, cb_grd);
-        addParam(uriComponentsBuilder, JOB_CD, job_cd);
-        addParam(uriComponentsBuilder, HOUSE_TYCD, house_tycd);
-        addParam(uriComponentsBuilder, AGE, age);
-        addParam(uriComponentsBuilder, INCOME, income);
-        addParam(uriComponentsBuilder, DEBT, debt);
+
+        RestUtil.addParam(uriComponentsBuilder, CB_GRD, cb_grd);
+        RestUtil.addParam(uriComponentsBuilder, JOB_CD, job_cd);
+        RestUtil.addParam(uriComponentsBuilder, HOUSE_TYCD, house_tycd);
+        RestUtil.addParam(uriComponentsBuilder, AGE, age);
+        RestUtil.addParam(uriComponentsBuilder, INCOME, income);
+        RestUtil.addParam(uriComponentsBuilder, DEBT, debt);
 
         URI uri = uriComponentsBuilder.build(true).toUri();
         MultiValueMap<String, String> headers = new HttpHeaders();
@@ -62,11 +63,6 @@ public class HouseApiService {
     }
 
 
-    private void addParam(UriComponentsBuilder uriComponentsBuilder, String name, String value){
-        if(uriComponentsBuilder == null || StringUtils.isEmpty(name) || StringUtils.isEmpty(value) ){
-            return;
-        }
-        uriComponentsBuilder.queryParam(name, value);
-    }
+
 
 }

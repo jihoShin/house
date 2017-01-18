@@ -1,19 +1,20 @@
-package com.jiho.house.model;
+package com.jiho.airport.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created by jiho87.shin on 2017-01-11.
+ * Created by jiho87.shin on 2017-01-17.
  */
 @XmlRootElement(name="response")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Response {
+public class DeparturesCongestionResponse {
 
     private Header header;
 
     private Body body;
+
 
     public Header getHeader() {
         return header;
